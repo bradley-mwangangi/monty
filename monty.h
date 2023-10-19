@@ -78,6 +78,8 @@ void _pchar(stack_t **top, unsigned int line_number);
 void _pstr(stack_t **top, unsigned int line_number);
 void _rotl(stack_t **top, unsigned int line_number);
 void _rotr(stack_t **top, unsigned int line_number);
+void _stack(stack_t **top, unsigned int line_number);
+void _queue(stack_t **top, unsigned int line_number);
 
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);

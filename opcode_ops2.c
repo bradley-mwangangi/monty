@@ -31,3 +31,29 @@ void _mod(stack_t **top, unsigned int line_number)
 
 	free(first_element);
 }
+
+/**
+ * _stack - sets format of the data to a stack (LIFO)
+ * @top: pointer to pointer of stack's top node
+ * @line_number: current line's number
+*/
+void _stack(stack_t **top, unsigned int line_number)
+{
+	(void)top;
+	(void)line_number;
+
+	globals.isStack = true;
+}
+
+/**
+ * _queue - sets format of the data to a _queue (FIFO)
+ * @top: pointer to pointer of stack's top node
+ * @line_number: current line's number
+*/
+void _queue(stack_t **top, unsigned int line_number)
+{
+	(void)top;
+	(void)line_number;
+
+	globals.isStack = false;
+}

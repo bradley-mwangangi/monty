@@ -20,6 +20,8 @@ void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL}
 	};
 
