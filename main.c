@@ -75,9 +75,7 @@ int main(int argc, char *argv[])
 			{
 				fprintf(stderr, "L%u: ", globals.cLine);
 				fprintf(stderr, "unknown instruction %s\n", line_read);
-				cleanup();
-
-				exit(EXIT_FAILURE);
+				cleanup_and_exit_failure();
 			}
 			globals.arg = strtok(NULL, " \t\n");
 			f(&globals.top, globals.cLine);

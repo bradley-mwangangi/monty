@@ -18,9 +18,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		cleanup();
-
-		exit(EXIT_FAILURE);
+		cleanup_and_exit_failure();
 	}
 
 	/**
@@ -57,9 +55,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		cleanup();
-
-		exit(EXIT_FAILURE);
+		cleanup_and_exit_failure();
 	}
 
 	new->n = n;

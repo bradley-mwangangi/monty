@@ -83,7 +83,10 @@ stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 
 void free_dlistint(stack_t *head);
+void cleanup_and_exit_failure(void);
 void err_usage(void);
+void err_division_by_zero(void);
+void err_stack_too_short(char *opcode);
 void cleanup(void);
 
 #endif /* MONTY_H */
