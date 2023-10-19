@@ -68,6 +68,7 @@ void _pint(stack_t **top, unsigned int line_number)
 		cleanup();
 		exit(EXIT_FAILURE);
 	}
+	printf("%d\n", (*top)->n);
 }
 
 /**
