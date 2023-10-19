@@ -37,12 +37,6 @@ void _pall(stack_t **top, unsigned int line_number)
 {
 	stack_t *current;
 	(void)line_number;
-	if (*top == NULL)
-	{
-		fprintf(stderr, "L%u: can't pall, stack empty\n", line_number);
-		cleanup();
-		exit(EXIT_FAILURE);
-	}
 
 	current = *top;
 	while (current)
