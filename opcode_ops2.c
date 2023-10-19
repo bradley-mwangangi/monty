@@ -57,3 +57,62 @@ void _queue(stack_t **top, unsigned int line_number)
 
 	globals.isStack = false;
 }
+
+/**
+ * _pchar - prints the char at the top of the stack
+ * followed by a new line
+ * @top: pointer to pointer of stack's top node
+ * @line_number: current line's number
+*/
+void _pchar(stack_t **top, unsigned int line_number)
+{
+	int value;
+
+	if (*top == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		cleanup_and_exit_failure();
+	}
+
+	value = (*top)->n;
+	if (value >= 0 && value <= 127)
+	{
+		printf("%c\n", value);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		cleanup_and_exit_failure();
+	}
+}
+
+/**
+ * _pstr - prints the string starting at the top of the stack,
+ * followed by a new line
+ * @top: pointer to pointer of stack's top node
+ * @line_number: current line's number
+*/
+void _pstr(stack_t **top, unsigned int line_number)
+{
+	stack_t *current;
+	int value;
+	(void)line_number;
+
+	if (*top == NULL)
+	{
+		printf("\n");
+		return;
+	}
+
+	current = *top;
+	while (current)
+	{
+		value = current->n;
+		if (value == 0 || value < 0 || value > 127)
+			break;
+
+		printf("%c", value);
+		current = current->next;
+	}
+	printf("\n");
+}
