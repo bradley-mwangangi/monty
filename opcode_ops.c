@@ -59,8 +59,7 @@ void _pint(stack_t **top, unsigned int line_number)
 	if (*top == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		cleanup();
-		exit(EXIT_FAILURE);
+		cleanup_and_exit_failure();
 	}
 	printf("%d\n", (*top)->n);
 }
@@ -77,8 +76,7 @@ void _pop(stack_t **top, unsigned int line_number)
 	if (top == NULL || *top == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
-		cleanup();
-		exit(EXIT_FAILURE);
+		cleanup_and_exit_failure();
 	}
 
 	popped = *top;
@@ -91,4 +89,37 @@ void _pop(stack_t **top, unsigned int line_number)
 		*top = NULL;
 
 	free(popped);
+}
+
+/**
+ * _swap - swaps the top two elements of the stack
+ * @top: pointer to pointer of stack's top node
+ * @line_number: current line's number
+*/
+void _swap(stack_t **top, unsigned int line_number)
+{
+	stack_t *first_element, *second_element;
+	(void)line_number;
+
+	if (top == NULL)
+		cleanup_and_exit_failure();
+
+	/* if stack is empty or stack has one element */
+	if (*top == NULL || (*top)->next == NULL)
+		err_stack_too_short("swap");
+
+	first_element = *top;
+	second_element = (*top)->next;
+
+	/* perform swapping */
+	first_element->prev = second_element;
+	first_element->next = second_element->next;
+
+	/* if exists, update third element->prev to point to first element */
+	if (second_element->next)
+		second_element->next->prev = first_element;
+
+	(*top) = second_element;
+	(*top)->prev = NULL;
+	(*top)->next = first_element;
 }
