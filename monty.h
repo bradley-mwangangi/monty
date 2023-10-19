@@ -63,8 +63,21 @@ ssize_t _getline(char **buffer, size_t *size, FILE *fp);
 
 void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
 
-void push(stack_t **top, unsigned int line_number);
-void pall(stack_t **top, unsigned int line_number);
+void _push(stack_t **top, unsigned int line_number);
+void _pall(stack_t **top, unsigned int line_number);
+void _pint(stack_t **top, unsigned int line_number);
+void _pop(stack_t **top, unsigned int line_number);
+void _swap(stack_t **top, unsigned int line_number);
+void _add(stack_t **top, unsigned int line_number);
+void _nop(stack_t **top, unsigned int line_number);
+void _sub(stack_t **top, unsigned int line_number);
+void _div(stack_t **top, unsigned int line_number);
+void _mul(stack_t **top, unsigned int line_number);
+void _mod(stack_t **top, unsigned int line_number);
+void _pchar(stack_t **top, unsigned int line_number);
+void _pstr(stack_t **top, unsigned int line_number);
+void _rotl(stack_t **top, unsigned int line_number);
+void _rotr(stack_t **top, unsigned int line_number);
 
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
